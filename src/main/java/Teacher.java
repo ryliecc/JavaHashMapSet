@@ -75,4 +75,8 @@ public class Teacher {
                 ", socialSecurityNumber=" + socialSecurityNumber +
                 '}';
     }
+
+    public void addCourse(Course course){
+        courses.put(course.courseName, course);
+    }
 }

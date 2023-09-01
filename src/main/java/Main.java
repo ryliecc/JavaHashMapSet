@@ -13,6 +13,7 @@ public class Main {
         Course uselessDebates = new Course("Useless Debates 101", parodyTeacher, 42);
         Course art = new Course("Paint beautiful rally posters", artTeacher, 666);
 
+        artTeacher.addCourse(art);
 
         Map<Integer, Student> students = new HashMap<>();
         students.put(angie.matrikelNumber, angie);
