@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Student {
     public String firstName;
@@ -64,6 +65,19 @@ public class Student {
                 ", matrikelNumber=" + matrikelNumber +
                 ", courses=" + courses +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return matrikelNumber == student.matrikelNumber && Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName) && Objects.equals(courses, student.courses);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, matrikelNumber, courses);
     }
 
     public void addCourse(Course course){

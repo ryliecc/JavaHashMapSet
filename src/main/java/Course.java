@@ -1,9 +1,11 @@
+import java.util.Objects;
+
 public class Course {
     public String courseName;
-    public String professor;
+    public Teacher professor;
     public int roomNumber;
 
-    public Course(String courseName, String professor, int roomNumber) {
+    public Course(String courseName, Teacher professor, int roomNumber) {
         this.courseName = courseName;
         this.professor = professor;
         this.roomNumber = roomNumber;
@@ -17,7 +19,7 @@ public class Course {
         return courseName;
     }
 
-    public String getProfessor() {
+    public Teacher getProfessor() {
         return professor;
     }
 
@@ -29,7 +31,7 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public void setProfessor(String professor) {
+    public void setProfessor(Teacher professor) {
         this.professor = professor;
     }
 
@@ -44,5 +46,18 @@ public class Course {
                 ", professor='" + professor + '\'' +
                 ", roomNumber=" + roomNumber +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        return roomNumber == course.roomNumber && Objects.equals(courseName, course.courseName) && Objects.equals(professor, course.professor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(courseName, professor, roomNumber);
     }
 }
